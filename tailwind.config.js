@@ -8,10 +8,12 @@ module.exports = {
         dark2: "#212833",
 
         grayScale: {
-          DEFAULT: "rgba(78, 93, 120)",
-          60: "rgba(78, 93, 120, 0.6)",
+          DEFAULT: "rgb(78, 93, 120)",
+          60: "rgba(78, 93, 120, 0.6 )",
         },
-        bluePrimary: "#377DFF",
+        bluePrimary: {
+          DEFAULT: "#377DFF",
+        },
         greenPrimary: "#38CB89",
         yellowPrimary: "#FFAB00",
         redPrimary: "#FF5630",

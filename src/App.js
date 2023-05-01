@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Signin from "./page/Signin";
 import Signup from "./page/Signup";
 import MainPage from "./page/MainPage";
+import Calendar from "./components/calendar/Calendar";
 function App() {
   return (
     <div className="App">

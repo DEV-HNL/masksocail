@@ -10,11 +10,21 @@ import { ReactComponent as EyeCloseIcon } from "../asset/icon/Eye Off.svg";
 import { ReactComponent as MaleIcon } from "../asset/icon/male.svg";
 import { ReactComponent as FemaleIcon } from "../asset/icon/Female.svg";
 import { ReactComponent as DateICon } from "../asset/icon/Calendar.svg";
+import { useState } from "react";
+import Calendar from "../components/calendar/Calendar";
 const Signup = () => {
+  const [onCalander, setOnCalander] = useState(false);
+  const [value, setValue] = useState(false);
+  const handleOpenCalendar = () => {
+    setOnCalander(!onCalander);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <>
       <Header />
-      <form className="mx-auto w-[550px]">
+      <form className="mx-auto w-[550px] bg-white" onSubmit={handleSubmit}>
         <div className="flex items-center justify-center flex-col gap-3 text-grayScale mb-5">
           <h2 className="font-bold text-2xl">Getting Started</h2>
           <span className="font-semibold ">
@@ -73,10 +83,16 @@ const Signup = () => {
             </div>
           </div>
           <div className="w-full focus-within:border-bluePrimary justify-between text-sm flex gap-x-3 text-grayScale-60">
-            <div className="w-full border border-gray-200 p-3 rounded-lg  flex items-center gap-x-3 font-semibold">
-              <DateICon />
+            <div className="w-full border border-gray-200 p-3 rounded-lg  flex items-center gap-x-3 font-semibold relative">
+              {onCalander && (
+                <Calendar setOff={setOnCalander} setValue={setValue}></Calendar>
+              )}
+              <div onClick={handleOpenCalendar} className="cursor-pointer">
+                <DateICon />
+              </div>
+
               <input type="date" name="date" id="date" className="hidden" />
-              <label htmlFor="date">Date of birth</label>
+              <label htmlFor="date">{value ? value : "Date of birth"}</label>
             </div>
             <div className="flex w-full justify-around border border-gray-200 p-3 rounded-lg  items-center gap-x-3 font-semibold">
               <MaleIcon />
